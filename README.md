@@ -1,2 +1,2 @@
-# VLM
-VLM verified with Tornado
+# Aerodinamica-VLM
+Vortex Lattice Method verified with Tornado
