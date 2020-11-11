@@ -25,9 +25,9 @@ function [Velocidad_z,Velocidad_y,Velocidad_x]=LeyBiotSavart3D(xr,yr,zr,xP,yP,zP
 % su respectivo modulo; como z=0, solo habra componente en z del producto
 % vectorial.
 
-    rrPxrrQ_z=(xr-xP).*(yr-yQ)-(xr-xQ).*(yr-yP);                           %Componente z
-    rrPxrrQ_x=(zr-zP).*(yr-yQ)-(zr-zQ).*(yr-yP);                           %Componente x
-    rrPxrrQ_y=(xr-xP).*(zr-zQ)-(xr-xQ).*(zr-zP);                           %Componente y
+    rrPxrrQ_z=(xr-xP).*(yr-yQ)-(xr-xQ).*(yr-yP);  %Componente z
+    rrPxrrQ_x=(zr-zP).*(yr-yQ)-(zr-zQ).*(yr-yP);  %Componente x
+    rrPxrrQ_y=(xr-xP).*(zr-zQ)-(xr-xQ).*(zr-zP);  %Componente y
 
 % Por ultimo, se tiene todo lo necesario para obtener el factor de
 % influencia.
