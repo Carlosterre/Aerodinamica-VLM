@@ -162,7 +162,7 @@ Xcurvatura=Xp_total./C_yp;
     N=Nx*Ny;
     Velocidad_total=zeros(1,N);
 
-%Particularizamos en z=0
+%Particularizndo en z=0
     z=zeros(1,N);
 
     for i=1:N
@@ -193,7 +193,7 @@ Xcurvatura=Xp_total./C_yp;
 
     Matriz_bprima(:,1:Nx*Ny)=Matriz_bprima1(:,1:Nx*Ny);
 
-%% Calculos necesarios para la obtencionn de la circulacion del panel como Matriz (Nx,Ny)
+%% Calculos necesarios para la obtencion de la circulacion del panel como matriz (Nx,Ny)
 
     for i=1:Nx
         for j=1:Ny
@@ -332,7 +332,7 @@ Velocidad_inducida= Matriz_bprima*Matriz_Gamma;
     legend ('\alpha = 0^o','\alpha = 2^o','\alpha = 4^o','\alpha = 5^o','\alpha = 6^o','\alpha = 8^o','\alpha = 10^o')
     grid on
 end
- %end
+%end
 
 figure(1)
 plot(CM,Cl,'-o')
