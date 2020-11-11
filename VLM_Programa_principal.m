@@ -1,5 +1,5 @@
-%% GRUPO 13 Alonso Lucas, Sara; Errasti Odriozola, Jon; 
-%%          Sarabia Vargas, Alejandro; Terreros Sanchez, Carlos
+%% Alonso Lucas, Sara; Errasti Odriozola, Jon; 
+%% Sarabia Vargas, Alejandro; Terreros Sanchez, Carlos
 
 % Este codigo calcula la aerodinamica estacionaria incompresible para un
 % ala con una geometria dada mediante el metodo Vortex-Lattice. El codigo
@@ -9,7 +9,9 @@
 % y obtener las mismas graficas dependientes del angulo de flecha, psi.
 % (linea 51-52 y Representacion a partir de la linea 333)
  
-clear
+clear all
+close all
+clc
 
 %% INPUT (MENU)
 
@@ -83,7 +85,7 @@ for k=1:length(alphag)
         end
     end
 
-%Cuerda media de cada panel y del punto de colocacion para cada panel
+% Cuerda media de cada panel y del punto de colocacion para cada panel
 N=Nx*Ny;
 
     for i=1:N
@@ -108,7 +110,7 @@ N=Nx*Ny;
         end
     end
 
-%Perfil para puntos de colocacion
+% Perfil para puntos de colocacion
 Xp_total=Xptotal-abs(Yptotal).*tan(psi);
 Xcurvatura=Xp_total./C_yp;
 
@@ -151,7 +153,7 @@ Xcurvatura=Xp_total./C_yp;
     yCtotal((Nx*Ny+1:Nx*Ny+Ny))=yCtotal(1:Ny);
     yDtotal((Nx*Ny+1:Nx*Ny+Ny))=yDtotal(1:Ny);
 
-%%  Calculos de normales
+%% Calculos de normales
 
     normal_P_z = -(xptotal(1:Nx*Ny)-x1(1:Nx*Ny)).*(yptotal(1:Nx*Ny)-y2(1:Nx*Ny))+(xptotal(1:Nx*Ny)-x2(1:Nx*Ny)).*(yptotal(1:Nx*Ny)-y1(1:Nx*Ny));
 
@@ -162,7 +164,7 @@ Xcurvatura=Xp_total./C_yp;
     N=Nx*Ny;
     Velocidad_total=zeros(1,N);
 
-%Particularizndo en z=0
+% Particularizndo en z=0
     z=zeros(1,N);
 
     for i=1:N
@@ -209,7 +211,7 @@ Xcurvatura=Xp_total./C_yp;
         end
     end
 
-%Calculos de variables de cada barra
+% Calculos de variables de cada barra
     ymed(1:Ny)=0.5*(y_v(1,2:(Ny+1))+y_v(1,1:Ny));
     cy(1:Ny)=0.5*(x_v(Nx+1,2:(Ny+1))+x_v(Nx+1,1:Ny)-x_v(1,(2:(Ny+1)))-x_v(1,1:Ny));
 
@@ -242,7 +244,7 @@ Xcurvatura=Xp_total./C_yp;
         Circulacion(j)=Gamma_total(1:Nx,j)'*h(1:Nx,j);
     end
 
-%Bucle para calculo del incD
+% Bucle para calculo del incD
 Velocidad_inducida= Matriz_bprima*Matriz_Gamma;
 
     for i=1:Nx
@@ -262,25 +264,25 @@ Velocidad_inducida= Matriz_bprima*Matriz_Gamma;
 
 %% Calculos de la sustentacion
 
-%Distribucion de presiones
+% Distribucion de presiones
     P=ro*U_inf*Gamma_total;
 
-%Incremento de Sustentacion
+% Incremento de Sustentacion
     incL(1:Nx,1:Ny)=ro*U_inf*(Gamma_total.*Area(1:Nx,1:Ny));
-%Incremento de Resistencia
+% Incremento de Resistencia
     incD=-ro*incDprima(1:Nx,1:Ny).*(Area(1:Nx,1:Ny));
-%Distribucion de Sustentacion
+% Distribucion de Sustentacion
     distr_L=ro*U_inf*Circulacion;
-%Coeficiente de presiones
+% Coeficiente de presiones
     Cp=-2*Gamma_total/U_inf;
-%Sustentacion
+% Sustentacion
     L1=sum(sum(incL));
     D=sum(sum(incD));
     L=sum(sum(Area(1:Nx,1:Ny).*P));
 
     AreaTotal=sum(sum(Area(1:Nx,1:Ny)));                                   %Superficie del ala completa
 
-%Coeficientes aerodinamicos
+% Coeficientes aerodinamicos
     Cl(k)=L/(1/2*ro*U_inf^2*AreaTotal);                                    %(k)
     Cd(k)=D/(1/2*ro*U_inf^2*AreaTotal);                                    %(k)
 
@@ -288,7 +290,7 @@ Velocidad_inducida= Matriz_bprima*Matriz_Gamma;
 
     cly=2*Circulacion./(U_inf*cy);
 
-%Momento de cabeceo
+% Momento de cabeceo
 
    for i=1:Nx
         for j=1:Ny
