@@ -131,6 +131,7 @@ Xcurvatura=Xp_total./C_yp;
             thetaC(G)=theta1(i,j);
         end
     end
+    
 %% Vertices de los paneles ABCD
 
     xAtotal(1:Nx*Ny) = x1(1:Nx*Ny)+(x4(1:Nx*Ny)-x1(1:Nx*Ny))./4; yAtotal(1:Nx*Ny)=y1(1:Nx*Ny); 
@@ -411,7 +412,6 @@ legend ('\alpha = 0^o','\alpha = 2^o','\alpha = 4^o','\alpha = 5^o','\alpha = 6^
 grid on
   
 figure(11)
-
 plot(ymed,distr_L)
 legend({'L'},'Location','Southeast')
 title('Sustentacion a lo largo de la envergadura')
@@ -419,7 +419,7 @@ hold on
 xlabel('Envergadura'),ylabel('Sustentacion')
 grid on    
     
- figure(12)
+figure(12)
 mesh(xptotalp/cr,yptotalp/b2,Cp)
 legend({'Cp'},'Location','Southeast')
 title('Distribucion de Cp a lo largo del ala')
@@ -427,7 +427,6 @@ xlabel('x'),ylabel('y'),zlabel('z')
 grid on
 
 figure(13)
-
 rotate3d on
 colormap(hot);
 
